@@ -168,25 +168,3 @@ class Loader(object):
         if not config_file_found and not silent:
             raise NoConfigFileFound("No configration file found")
         return config
-
-
-import appdirs
-
-
-config = (
-    Loader("settings.json")
-    .add_folder_path("defaults")
-    .add_folder_path("production")
-    .build()
-    .from_environment("MY_COOL_APP")
-)
-
-print(config["a_setting"])
-
-# loader.add_folder_path(appdirs.user_config_dir("pythos"))
-config = loader.build(True)
-# config.from_dotenv("MY_COOL_APP")
-config.update(
-    hello="World",
-)
-print(config)
