@@ -111,8 +111,8 @@ from conftastic import Loader, Config
 loader = Loader(
     "settings.json",
     defaults={
-    	"a_default_value": 123,
-	}
+        "a_default_value": 123,
+    }
 )
 
 loader.add_folder_path(".")
@@ -225,7 +225,7 @@ On a Linux system, that will add the following folder path: `~/.config/my-projec
 
 ## Using the from_file() method
 
-When loading a JSON file, the `from_file()` is called behind the scenes. We can create our own version. Maybe you prefer the more stricter `json` package, or maybe you have another loader/file format you want to use:
+When loading a JSON file, the `from_file()` method is called behind the scenes. We can create our own version. Maybe you prefer the more stricter `json` package, or maybe you have another loader/file format you want to use:
 
 ```python
 import json
@@ -280,7 +280,7 @@ And in the terminal:
 {'EXAMPLE': 'ohyes'}
 ```
 
-The parameter sent to `from_environment()` is the prefix that shall be looked for. The prefix is stripped when added to the configuration.
+The parameter sent to `from_environment()` is the prefix that shall be looked for. The prefix is stripped when the sesttings are added to the configuration.
 
 ## Passing Config to Loader as defaults
 
@@ -299,9 +299,9 @@ config: Config = loader.build()
 config.from_environment("MY_COOL_APP")
 ```
 
-But what  happens if you want to have these settings as defaults, and let the setting file(s) have higher priority?
+But what  happens if you want to have these settings as defaults, and let the settings file(s) have higher priority?
 
-To our rescue, the `Config` is a dictionary, so we can pass it to the `Loader`:
+To our rescue, the `Config` is a dictionary so we can pass it to the `Loader`:
 
 ```python
 from conftastic import Loader, Config
@@ -332,8 +332,6 @@ config = Config({
     }
 })
 
-config.from_environment("MY_COOL_APP")
-
 config.get_recursive(("database", "connection"))  # {'path': 'sqlite://example.db'}
 config.get_recursive(("database", "connection", "path"))  # sqlite://example.db
 config.get_recursive(("database", "connection", "non_existing"))  # None
@@ -353,7 +351,7 @@ from conftastic import Config
 config = Config()
 
 config.update(
-	this="is",
+    this="is",
     an="example",
 )
 
